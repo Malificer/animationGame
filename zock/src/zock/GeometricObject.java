@@ -30,24 +30,35 @@ public GeometricObject(double height, double width){
 	this(height, width, new Vertex(0,0));
 	
 	}
+
+public GeometricObject(double height){
+	this(height, height);
+	}
+
+public GeometricObject(){this(10);}
+
+public GeometricObject(Vertex pos){
+	this(0,0,pos);
+	}
+
 public String toString() {
 	return "width="+width+" , height="+height+", pos="+pos;
-
 	}
+
 public double circumference() {return 2*(width+height);}
 
 public double areal() {return width*height;}
 
 public boolean contains(Vertex v) {
-return v.x >= pos.x && v.x <= pos.x+width
-&& v.y >= pos.y && v.y <= pos.y+height;
+	return v.x >= pos.x && v.x <= pos.x+width 
+			&& v.y >= pos.y && v.y <= pos.y+height;
 
 	}
+public boolean isLargerThan(GeometricObject that) {
+	return that.area() > this.area();
 
-
-
-
-
+	}
+public void moveTo(Vertex pos) {this.pos=pos;}
 
 
 
