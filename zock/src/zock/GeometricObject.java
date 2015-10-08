@@ -31,6 +31,8 @@ public GeometricObject(double height, double width){
 	
 	}
 
+
+
 public GeometricObject(double height){
 	this(height, height);
 	}
@@ -47,7 +49,7 @@ public String toString() {
 
 public double circumference() {return 2*(width+height);}
 
-public double areal() {return width*height;}
+public double area() {return width*height;}
 
 public boolean contains(Vertex v) {
 	return v.x >= pos.x && v.x <= pos.x+width 
@@ -59,6 +61,31 @@ public boolean isLargerThan(GeometricObject that) {
 
 	}
 public void moveTo(Vertex pos) {this.pos=pos;}
+
+public void moveTo(double x,double y) {
+	moveTo(new Vertex(x,y));
+	}
+
+
+public void move(Vertex v){moveTo(pos.add(v));}
+
+public boolean equals(Object thatObject){
+	if(thatObject instanceof GeometricObject){
+		GeometricObject that = (GeometricObject)thatObject;
+		
+		return this.width==that.width && this.height == that.height
+				&& this.pos.equals(that.pos);
+				
+	}
+		return false;
+	}
+
+
+
+
+
+
+
 
 
 
